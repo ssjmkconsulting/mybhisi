@@ -1,0 +1,25 @@
+<%- include('partials/header') %>
+<div class="row justify-content-center">
+  <div class="col-md-7 col-lg-6">
+    <div class="card shadow-sm border-0 p-4">
+      <h1 class="h3 mb-3">Create your mybhisi account</h1>
+      <% if (error) { %><div class="alert alert-danger"><%= error %></div><% } %>
+      <form method="POST" action="/register" class="vstack gap-3">
+        <div>
+          <label class="form-label">Full name</label>
+          <input class="form-control" type="text" name="fullName" value="<%= values.fullName || '' %>" required />
+        </div>
+        <div>
+          <label class="form-label">Email</label>
+          <input class="form-control" type="email" name="email" value="<%= values.email || '' %>" required />
+        </div>
+        <div>
+          <label class="form-label">Password (min 8 chars)</label>
+          <input class="form-control" type="password" name="password" required minlength="8" />
+        </div>
+        <button class="btn btn-aurora">Create account</button>
+      </form>
+    </div>
+  </div>
+</div>
+<%- include('partials/footer') %>

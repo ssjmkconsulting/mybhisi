@@ -1,0 +1,38 @@
+:root {
+  --mybhisi-bg: #090b17;
+  --mybhisi-cyan: #30d5c8;
+  --mybhisi-purple: #6f42c1;
+}
+
+body {
+  background: radial-gradient(circle at 10% 10%, #151b37, var(--mybhisi-bg) 50%);
+  min-height: 100vh;
+}
+
+.glass-nav {
+  backdrop-filter: blur(12px);
+  background: rgba(8, 10, 22, 0.82);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hero {
+  background: linear-gradient(130deg, rgba(48, 213, 200, 0.35), rgba(111, 66, 193, 0.6));
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 25px 80px rgba(25, 35, 75, 0.4);
+}
+
+.card {
+  border-radius: 1rem;
+}
+
+.btn-aurora {
+  background: linear-gradient(120deg, var(--mybhisi-cyan), var(--mybhisi-purple));
+  border: none;
+  color: #fff;
+}
+
+.btn-aurora:hover,
+.btn-aurora:focus {
+  color: #fff;
+  opacity: 0.95;
+}

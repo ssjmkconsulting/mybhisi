@@ -1,0 +1,25 @@
+<%- include('partials/header') %>
+<div class="row justify-content-center">
+  <div class="col-lg-8">
+    <div class="card border-0 shadow-sm p-4">
+      <h1 class="h3">Create a Bhisi Group</h1>
+      <% if (error) { %><div class="alert alert-danger"><%= error %></div><% } %>
+      <form class="vstack gap-3" action="/groups" method="POST">
+        <div>
+          <label class="form-label">Group name</label>
+          <input class="form-control" name="name" required value="<%= values.name || '' %>" />
+        </div>
+        <div>
+          <label class="form-label">Description</label>
+          <textarea class="form-control" name="description" rows="3"><%= values.description || '' %></textarea>
+        </div>
+        <div>
+          <label class="form-label">Monthly contribution (ZAR)</label>
+          <input class="form-control" name="monthlyContribution" type="number" min="1" step="0.01" required value="<%= values.monthlyContribution || '' %>" />
+        </div>
+        <button class="btn btn-aurora">Create group</button>
+      </form>
+    </div>
+  </div>
+</div>
+<%- include('partials/footer') %>

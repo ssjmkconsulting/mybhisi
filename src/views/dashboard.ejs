@@ -1,0 +1,61 @@
+<%- include('partials/header') %>
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div>
+    <h1 class="h2 mb-1">Your Bhisi Dashboard</h1>
+    <p class="text-muted mb-0">See every group, contribution, and payout in one place.</p>
+  </div>
+  <a class="btn btn-aurora" href="/groups/new">+ New Group</a>
+</div>
+
+<div class="row g-4">
+  <div class="col-lg-8">
+    <div class="card border-0 shadow-sm">
+      <div class="card-body">
+        <h2 class="h5">Your groups</h2>
+        <% if (groups.length === 0) { %>
+          <p class="text-muted mb-0">You haven’t joined any groups yet. Start your first bhisi today.</p>
+        <% } else { %>
+          <div class="table-responsive">
+            <table class="table align-middle">
+              <thead><tr><th>Name</th><th>Members</th><th>Total pooled</th><th></th></tr></thead>
+              <tbody>
+                <% groups.forEach(group => { %>
+                  <tr>
+                    <td>
+                      <strong><%= group.name %></strong>
+                      <div class="small text-muted">Monthly: <%= toCurrency(group.monthly_contribution) %></div>
+                    </td>
+                    <td><%= group.member_count %></td>
+                    <td><%= toCurrency(group.total_collected) %></td>
+                    <td class="text-end"><a class="btn btn-sm btn-outline-secondary" href="/groups/<%= group.id %>">Open</a></td>
+                  </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="card border-0 shadow-sm h-100">
+      <div class="card-body">
+        <h2 class="h5">Upcoming payouts</h2>
+        <% if (payouts.length === 0) { %>
+          <p class="text-muted">No payouts scheduled yet.</p>
+        <% } else { %>
+          <ul class="list-group list-group-flush">
+            <% payouts.forEach(payout => { %>
+              <li class="list-group-item px-0">
+                <div class="fw-semibold"><%= payout.group_name %></div>
+                <small class="text-muted d-block"><%= payout.recipient_name %> · <%= toDate(payout.payout_date) %></small>
+                <span><%= toCurrency(payout.amount) %></span>
+              </li>
+            <% }) %>
+          </ul>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include('partials/footer') %>
