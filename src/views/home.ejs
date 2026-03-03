@@ -1,0 +1,30 @@
+<%- include('partials/header') %>
+<section class="hero p-5 rounded-4 mb-4 text-white">
+  <div class="row g-4 align-items-center">
+    <div class="col-lg-7">
+      <p class="badge text-bg-light text-uppercase mb-3">Community wealth, modernized</p>
+      <h1 class="display-5 fw-bold">Build trust. Rotate wealth. Grow together.</h1>
+      <p class="lead text-white-50">mybhisi brings traditional group savings into a secure, transparent and beautiful digital experience.</p>
+      <div class="d-flex gap-2 mt-4">
+        <a href="/register" class="btn btn-light btn-lg">Create free account</a>
+        <a href="/login" class="btn btn-outline-light btn-lg">Sign in</a>
+      </div>
+    </div>
+    <div class="col-lg-5">
+      <div class="card shadow-lg border-0 bg-dark-subtle text-dark p-3">
+        <h2 class="h5">Live platform pulse</h2>
+        <ul class="list-unstyled mb-0">
+          <li class="py-2 border-bottom d-flex justify-content-between"><span>Members</span><strong><%= stats.members %></strong></li>
+          <li class="py-2 border-bottom d-flex justify-content-between"><span>Active groups</span><strong><%= stats.groups %></strong></li>
+          <li class="py-2 d-flex justify-content-between"><span>Total pooled</span><strong><%= toCurrency(stats.pooled) %></strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="row g-3">
+  <div class="col-md-4"><div class="card p-3 h-100 shadow-sm"><h3 class="h5">Reliable Contributions</h3><p class="mb-0 text-muted">Track each payment with exact timestamps and clear history.</p></div></div>
+  <div class="col-md-4"><div class="card p-3 h-100 shadow-sm"><h3 class="h5">Transparent Payouts</h3><p class="mb-0 text-muted">Plan and view payout schedules so everyone stays aligned.</p></div></div>
+  <div class="col-md-4"><div class="card p-3 h-100 shadow-sm"><h3 class="h5">Elegant Dashboard</h3><p class="mb-0 text-muted">Beautifully designed screens that remain simple for every user.</p></div></div>
+</section>
+<%- include('partials/footer') %>
